@@ -11,50 +11,67 @@
 </head>
 <body>
 
-    <!-- Splash Screen CSS -->
+    <!-- Splash Screen -->
     <div id="splash">
         <img src="Pictures/logobg.png" alt="Logo Vita Café">
     </div>
 
-    <!-- ALERTA DE PROMOCIÓN Bootstrap -->
+    <!-- Alerta de promoción -->
     <div class="alert alert-warning text-center m-0" role="alert">
         ☕ LUNES DE 2X1 EN CAFÉ DE 9:00hs A 12:00hs!
     </div>
 
+    <!-- Header -->
     <header>
         <img src="Pictures/logobg.png" alt="Logo Vita Café">
         <h1>Bienvenidos a Vita Café</h1>
+
+        <!-- Navegación -->
         <nav>
             <ul>
                 <li><a href="#about">Sobre Nosotros</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#gallery">Galería</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
     </header>
-    
-    <main>
+
+    <!-- Main -->
+    <main class="container">
+
+        <!-- Sección Sobre Nosotros -->
         <section id="about">
             <h2>Sobre Nosotros</h2>
-            <p>Vita Café es el lugar donde el sabor se encuentra con la calidez.
-            Disfrutá de nuestros platos salados preparados con ingredientes frescos y ese café que siempre invita a quedarte un rato más.
+            <p class="texto-normal">
+                Vita Café es el lugar donde el sabor se encuentra con la calidez.
+                Disfrutá de nuestros platos salados preparados con ingredientes frescos y ese café que siempre invita a quedarte un rato más.
             </p>
-            <p>☕ Vita Café, tu pausa favorita del día.</p>       
+            <p class="texto-destacado">☕ Vita Café, tu pausa favorita del día.</p>
         </section>
 
+        <!-- Sección Menú -->
         <section id="menu">
             <h2>Menú</h2>
-            <ul>
-                <li><img src="Pictures/cheesecake.jpg" alt="cheesecake Vita Café"></li>
-                <li><img src="Pictures/pascualina.jpg" alt="pascualina Vita Café"></li>
-                <li><img src="Pictures/scones.jpg" alt="scones Vita Café"></li>
-                <li><img src="Pictures/tortadefiambre.jpg" alt="torta de fiambre Vita Café"></li>
-            </ul>
+            <div class="row g-3 justify-content-center">
+                <div class="col-6 col-md-3">
+                    <img src="Pictures/cheesecake.jpg" alt="Cheesecake Vita Café" class="menu-img">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="Pictures/pascualina.jpg" alt="Pascualina Vita Café" class="menu-img">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="Pictures/scones.jpg" alt="Scones Vita Café" class="menu-img">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="Pictures/tortadefiambre.jpg" alt="Torta de Fiambre Vita Café" class="menu-img">
+                </div>
+            </div>
         </section>
 
+        <!-- Sección Galería -->
         <section id="gallery">
-            <h2>Galeria</h2>
+            <h2>Galería</h2>
             <div class="gallery">
                 <img src="Pictures/restaurante1.png" alt="Vita Café 1">
                 <img src="Pictures/restaurante2.jpg" alt="Vita Café 2">
@@ -62,11 +79,13 @@
             </div>
         </section>
 
+        <!-- Sección Contacto -->
         <section id="contact">
             <h2>Contacto</h2>
-            Email: <a href="mailto:contacto@vitacafe.com.uy">contacto@vitacafe.com.uy</a><br>
-            Teléfono: <a href="tel:+59894189960">+598 94 189 960</a>
+            <p>Email: <a href="mailto:contacto@vitacafe.com.uy">contacto@vitacafe.com.uy</a></p>
+            <p>Teléfono: <a href="tel:+59894189960">+598 94 189 960</a></p>
             <p>Dirección: Calle Sentra 1988, Vitara, Canelones, Uruguay</p>
+
             <form class="formulario-contacto" action="#" method="post">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
@@ -80,12 +99,15 @@
                 <button type="submit" class="btn btn-warning">Enviar</button>
             </form>
         </section>
+
     </main>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Vita Café. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
