@@ -1,0 +1,62 @@
+/* Variables */
+$bg: #f5eee6;
+$brown-light: #d6bfa7;
+$brown-medium: #a67c52;
+$brown-dark: #6e4b1b;
+$accent: #c9a27b;
+$white: #fff;
+
+/* General */
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: $bg;
+  color: $brown-dark;
+  line-height: 1.6;
+}
+
+/* Tipografía */
+h1 { font-size: 3.5rem; margin: 0; padding: 1rem 0; color: $white; }
+h2 { color: $brown-dark; margin-top: 0; text-align: center; }
+.texto-destacado { font-size: 1.3em; font-weight: bold; color: $brown-dark; }
+.texto-normal { font-size: 1.2em; }
+
+/* Navbar personalizada */
+.bg-brown { background-color: $brown-medium !important; }
+
+/* Secciones */
+section {
+  background: $brown-light;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(166, 124, 82, 0.1);
+  padding: 2rem;
+}
+/* Splash Screen */
+#splash {
+  position: fixed; 
+  top: 0; left: 0; 
+  width: 100%; height: 100%;
+  background-color: #fff; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  z-index: 9999; 
+  animation: splash-fade 3s forwards;
+
+  img {
+    width: 200px; 
+    animation: splash-zoom 1s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes splash-zoom { 
+  from { transform: scale(1); } 
+  to { transform: scale(1.1); } 
+}
+
+@keyframes splash-fade { 
+  0% { opacity: 1; } 
+  80% { opacity: 1; } 
+  100% { opacity: 0; display: none; }
+}
