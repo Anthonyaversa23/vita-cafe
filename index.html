@@ -4,36 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vita Café</title>
-  
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Estilos compilados -->
+  <!-- Estilos personalizados -->
   <link rel="stylesheet" href="css/estilos.css">
+
+  <style>
+    /* Fondo tipo marca de agua */
+    .background-watermark {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('Pictures/fondo.png') center/cover no-repeat;
+      opacity: 0.08; 
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Hero con overlay oscuro*/
+    .hero-section {
+      position: relative;
+      min-height: 80vh;
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('Pictures/fondo.png') center/cover no-repeat;
+    }
+
+    /* Navbar sólido al hacer scroll */
+    .navbar-solid {
+      background-color: rgba(0,0,0,0.85) !important;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Color de footer */
+    .bg-brown {
+      background-color: #4b2e2e;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Fondo marca de agua -->
+  <div class="background-watermark"></div>
 
   <!-- Splash Screen -->
   <div id="splash">
     <img src="Pictures/logobg.png" alt="Logo Vita Café">
   </div>
 
-  <!-- Alerta -->
-  <div class="alert alert-warning text-center m-0" role="alert">
-    ☕ LUNES DE 2X1 EN CAFÉ DE 9:00hs A 12:00hs!
-  </div>
-
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-brown">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="Pictures/logobg.png" alt="Logo Vita Café" width="80">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="Pictures/logobg.png" alt="Logo Vita Café" width="50" class="me-2">
+        <span class="brand-name">Vita Café</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="menuNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="#about">Sobre Nosotros</a></li>
           <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
           <li class="nav-item"><a class="nav-link" href="#gallery">Galería</a></li>
@@ -43,52 +78,80 @@
     </div>
   </nav>
 
-  <!-- Main -->
-  <main class="container my-5">
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section d-flex align-items-center justify-content-center text-center">
+    <div class="hero-overlay"></div>
+    <div class="hero-content text-white">
+      <h1 class="display-3 fw-bold">Bienvenido a Vita Café</h1>
+      <p class="fs-5 mt-3">Cada sorbo y bocado se convierte en una experiencia inolvidable</p>
+      <a href="#menu" class="btn btn-warning btn-lg mt-4 hero-btn">Ver Menú</a>
+    </div>
+  </section>
+
+  <main class="container py-5">
 
     <!-- Sobre Nosotros -->
-    <section id="about" class="mb-5">
-      <h2 class="text-center">Sobre Nosotros</h2>
-      <p class="texto-normal text-center">
-        Vita Café es el lugar donde el sabor se encuentra con la calidez.
-        Disfrutá de nuestros platos salados preparados con ingredientes frescos y ese café que siempre invita a quedarte un rato más.
+    <section id="about" class="fade-in py-5 text-center">
+      <h2 class="section-title">Sobre Nosotros</h2>
+      <p class="texto-normal mb-3">
+        Vita Café combina el sabor con la calidez. Disfrutá de nuestros platos salados preparados con ingredientes frescos y ese café que siempre invita a quedarse un rato más.
       </p>
-      <p class="texto-destacado text-center">☕ Vita Café, tu pausa favorita del día.</p>
+      <p class="texto-destacado fs-5">☕ Vita Café, tu pausa favorita del día.</p>
     </section>
 
     <!-- Menú -->
-    <section id="menu" class="mb-5">
-      <h2 class="text-center mb-4">Menú</h2>
+    <section id="menu" class="fade-in py-5">
+      <h2 class="section-title text-center mb-4">Menú</h2>
       <div class="row g-4 justify-content-center">
+        <!-- Cheesecake -->
         <div class="col-6 col-md-3">
-          <div class="card">
-            <img src="Pictures/cheesecake.jpg" class="card-img-top" alt="Cheesecake">
+          <div class="card menu-card h-100 border-0 shadow-lg">
+            <div class="card-img-container">
+              <img src="Pictures/cheesecake.jpg" class="card-img-top" alt="Cheesecake">
+              <div class="overlay">
+                <p class="overlay-text">Cheesecake</p>
+              </div>
+            </div>
             <div class="card-body text-center">
-              <h5 class="card-title">Cheesecake</h5>
             </div>
           </div>
         </div>
+        <!-- Pascualina -->
         <div class="col-6 col-md-3">
-          <div class="card">
-            <img src="Pictures/pascualina.jpg" class="card-img-top" alt="Pascualina">
+          <div class="card menu-card h-100 border-0 shadow-lg">
+            <div class="card-img-container">
+              <img src="Pictures/pascualina.jpg" class="card-img-top" alt="Pascualina">
+              <div class="overlay">
+                <p class="overlay-text">Pascualina</p>
+              </div>
+            </div>
             <div class="card-body text-center">
-              <h5 class="card-title">Pascualina</h5>
             </div>
           </div>
         </div>
+        <!-- Scones -->
         <div class="col-6 col-md-3">
-          <div class="card">
-            <img src="Pictures/scones.jpg" class="card-img-top" alt="Scones">
+          <div class="card menu-card h-100 border-0 shadow-lg">
+            <div class="card-img-container">
+              <img src="Pictures/scones.jpg" class="card-img-top" alt="Scones">
+              <div class="overlay">
+                <p class="overlay-text">Scones</p>
+              </div>
+            </div>
             <div class="card-body text-center">
-              <h5 class="card-title">Scones</h5>
             </div>
           </div>
         </div>
+        <!-- Torta de Fiambre -->
         <div class="col-6 col-md-3">
-          <div class="card">
-            <img src="Pictures/tortadefiambre.jpg" class="card-img-top" alt="Torta de Fiambre">
+          <div class="card menu-card h-100 border-0 shadow-lg">
+            <div class="card-img-container">
+              <img src="Pictures/tortadefiambre.jpg" class="card-img-top" alt="Torta de Fiambre">
+              <div class="overlay">
+                <p class="overlay-text">Torta de Fiambre</p>
+              </div>
+            </div>
             <div class="card-body text-center">
-              <h5 class="card-title">Torta de Fiambre</h5>
             </div>
           </div>
         </div>
@@ -96,27 +159,27 @@
     </section>
 
     <!-- Galería -->
-    <section id="gallery" class="mb-5">
-      <h2 class="text-center mb-4">Galería</h2>
+    <section id="gallery" class="fade-in py-5">
+      <h2 class="section-title text-center mb-4">Galería</h2>
       <div class="row g-3 justify-content-center">
         <div class="col-6 col-md-4">
-          <img src="Pictures/restaurante1.png" class="img-fluid rounded shadow-sm" alt="Vita Café 1">
+          <img src="Pictures/restaurante1.png" class="img-fluid rounded shadow-lg hover-zoom" alt="Vita Café 1">
         </div>
         <div class="col-6 col-md-4">
-          <img src="Pictures/restaurante2.jpg" class="img-fluid rounded shadow-sm" alt="Vita Café 2">
+          <img src="Pictures/restaurante2.jpg" class="img-fluid rounded shadow-lg hover-zoom" alt="Vita Café 2">
         </div>
         <div class="col-6 col-md-4">
-          <img src="Pictures/restaurante3.jpg" class="img-fluid rounded shadow-sm" alt="Vita Café 3">
+          <img src="Pictures/restaurante3.jpg" class="img-fluid rounded shadow-lg hover-zoom" alt="Vita Café 3">
         </div>
       </div>
     </section>
 
     <!-- Contacto -->
-    <section id="contact">
-      <h2 class="text-center mb-4">Contacto</h2>
-      <p class="text-center">Email: <a href="mailto:contacto@vitacafe.com.uy">contacto@vitacafe.com.uy</a></p>
-      <p class="text-center">Teléfono: <a href="tel:+59894189960">+598 94 189 960</a></p>
-      <p class="text-center">Dirección: Calle Sentra 1988, Vitara, Canelones, Uruguay</p>
+    <section id="contact" class="fade-in py-5">
+      <h2 class="section-title text-center mb-4">Contacto</h2>
+      <p class="text-center mb-1">Email: <a href="mailto:contacto@vitacafe.com.uy" class="link-warning">contacto@vitacafe.com.uy</a></p>
+      <p class="text-center mb-1">Teléfono: <a href="tel:+59894189960" class="link-warning">+598 94 189 960</a></p>
+      <p class="text-center mb-4">Dirección: Calle Sentra 1988, Vitara, Canelones, Uruguay</p>
 
       <form class="mx-auto mt-4" style="max-width: 600px;">
         <div class="mb-3">
@@ -131,18 +194,44 @@
           <label for="mensaje" class="form-label">Mensaje:</label>
           <textarea class="form-control" id="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
         </div>
-        <button type="submit" class="btn btn-warning w-100">Enviar</button>
+        <button type="submit" class="btn btn-warning w-100 fw-bold hero-btn">Enviar</button>
       </form>
     </section>
 
   </main>
 
   <!-- Footer -->
-  <footer class="bg-brown text-white text-center py-3">
-    <p>&copy; 2025 Vita Café. Todos los derechos reservados.</p>
+  <footer class="bg-brown text-white text-center py-4">
+    <p class="mb-2">&copy; 2025 Vita Café. Todos los derechos reservados.</p>
+    <div class="social-links">
+      <a href="#" class="text-white me-3">FB</a>
+      <a href="#" class="text-white me-3">IG</a>
+      <a href="#" class="text-white">TW</a>
+    </div>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Animaciones y Navbar Scroll -->
+  <script>
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 50) navbar.classList.add('navbar-solid');
+      else navbar.classList.remove('navbar-solid');
+    });
+
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 </body>
 </html>
