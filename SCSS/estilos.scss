@@ -1,4 +1,4 @@
-/* Variables */
+/*VARIABLES*/
 $bg: #f5eee6;
 $brown-light: #d6bfa7;
 $brown-medium: #a67c52;
@@ -6,29 +6,54 @@ $brown-dark: #6e4b1b;
 $accent: #c9a27b;
 $white: #fff;
 
-/* Fonts */
+/*MIXINS*/
+@mixin sombra-suave($color: rgba(0,0,0,0.10), $y: 2px, $blur: 16px) {
+  box-shadow: 0 $y $blur $color;
+}
+
+@mixin border-radius($radio: 12px) {
+  border-radius: $radio;
+}
+
+/*EXTEND PLACEHOLDER*/
+%btn-base {
+  @include border-radius(12px);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+/*BASE*/
 body {
   font-family: 'Roboto', sans-serif;
   background: $bg;
   color: $brown-dark;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 h1, .brand-name, .section-title {
   font-family: 'Playfair Display', serif;
 }
 
-/* Navbar */
+/*NAVBAR*/
 .navbar {
-  background: transparent;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  background: rgba($brown-medium, 0.7);
+  backdrop-filter: blur(8px);
+  @include sombra-suave();
+  border-bottom: 1.5px solid rgba($brown-dark, 0.08);
+  transition: background 0.4s, box-shadow 0.4s;
   &.navbar-solid {
-    background: rgba($brown-medium, 0.85);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    background: rgba($brown-dark, 0.92);
+    @include sombra-suave(rgba(0,0,0,0.18), 4px, 18px);
+  }
+  .navbar-brand {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
   }
 }
 
-/* Hero Section */
+/*HERO SECTION*/
 .hero-section {
   position: relative;
   min-height: 80vh;
@@ -50,6 +75,15 @@ h1, .brand-name, .section-title {
     z-index: 2;
     max-width: 700px;
     animation: fade-in 1.2s ease-out forwards;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    h1 {
+      animation: hero-pop 1.2s cubic-bezier(.68,-0.55,.27,1.55) both;
+    }
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.93;
+    }
   }
 
   .hero-btn {
@@ -57,8 +91,12 @@ h1, .brand-name, .section-title {
     &:hover { transform: scale(1.05); }
   }
 }
+@keyframes hero-pop {
+  0% { opacity: 0; transform: scale(0.85) translateY(40px);}
+  100% { opacity: 1; transform: scale(1) translateY(0);}
+}
 
-/* Background watermark */
+/*BACKGROUND WATERMARK*/
 .background-watermark {
   position: fixed;
   top: 0;
@@ -72,7 +110,7 @@ h1, .brand-name, .section-title {
   pointer-events: none;
 }
 
-/* Secciones */
+/*SECCIONES*/
 section {
   background: $brown-light;
   border-radius: 15px;
@@ -85,15 +123,22 @@ section {
   &.appear { opacity: 1; transform: translateY(0); }
 }
 
-/* Menu Cards */
+/*MENU CARDS*/
 .menu-card {
   position: relative;
   overflow: hidden;
-  border-radius: 15px;
+  @include border-radius(15px);
+  background: rgba($white, 0.55);
+  @include sombra-suave(rgba($brown-dark, 0.10), 8px, 32px);
+  border: 1.5px solid rgba($brown-medium, 0.13);
+  backdrop-filter: blur(2px);
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
 
-  &:hover { transform: translateY(-5px); }
+  &:hover {
+    transform: translateY(-8px) scale(1.04);
+    @include sombra-suave(rgba($brown-dark, 0.18), 16px, 40px);
+  }
 
   .card-img-container { position: relative; }
   .overlay {
@@ -108,23 +153,41 @@ section {
   &:hover .overlay { transform: translateY(0); }
   .overlay-text { color: $white; font-weight: bold; text-align: center; }
 }
+$menu-bg-colors: #fffbe6, #f5eee6, #f9e7d6, #f7f3ee;
+@each $color in $menu-bg-colors {
+  $i: index($menu-bg-colors, $color);
+  .menu-card.bg-#{$i} {
+    background-color: $color;
+  }
+}
 
-/* Galería hover */
+/*GALERÍA POLAROID*/
+#gallery img {
+  border: 6px solid $white;
+  @include sombra-suave(rgba($brown-dark, 0.13), 8px, 24px);
+  transition: transform 0.3s, box-shadow 0.3s;
+  &:hover {
+    transform: rotate(-2deg) scale(1.04);
+    @include sombra-suave(rgba($brown-dark, 0.18), 16px, 40px);
+  }
+}
+
+/*HOVER ZOOM*/
 .hover-zoom { transition: transform 0.3s ease; &:hover { transform: scale(1.07); } }
 
-/* Botones */
+/*BOTONES*/
 .btn-warning {
+  @extend %btn-base;
   background-color: $accent;
   border: none;
   font-weight: 600;
-  transition: all 0.3s ease;
   &:hover { 
     background-color: darken($accent, 10%);
     transform: translateY(-2px) scale(1.05); 
   }
 }
 
-/* Splash Screen */
+/*SPLASH SCREEN*/
 #splash {
   position: fixed;
   inset: 0;
@@ -143,11 +206,62 @@ section {
 @keyframes splash-zoom { 0% {transform: scale(1);} 100% {transform: scale(1.1);} }
 @keyframes splash-fade { 0%, 80% {opacity:1;} 100% {opacity:0; display:none;} }
 
-/* Fade-in animaciones */
+/*FADE-IN ANIMACIONES*/
 @keyframes fade-in { from { opacity:0; transform: translateY(40px); } to { opacity:1; transform: translateY(0); } }
 
-/* Responsive */
-@media(max-width:768px) {
+/*FORMULARIO DE CONTACTO*/
+form {
+  input, textarea {
+    @include border-radius();
+    border: 1.5px solid $brown-light;
+    box-shadow: 0 2px 8px rgba($brown-medium, 0.13);
+    transition: border 0.2s, box-shadow 0.2s;
+    &:focus {
+      border-color: $brown-medium;
+      box-shadow: 0 4px 16px rgba($brown-medium, 0.12);
+    }
+  }
+  button {
+    @extend %btn-base;
+    box-shadow: 0 2px 8px rgba($accent, 0.10);
+    &:hover {
+      background: darken($accent, 8%);
+      box-shadow: 0 4px 16px rgba($accent, 0.18);
+    }
+  }
+}
+
+/*FOOTER SOCIAL ICONS*/
+footer .social-links a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  font-size: 1.3rem;
+  color: $white;
+  opacity: 0.85;
+  transition: color 0.2s, transform 0.2s;
+  &:hover {
+    color: $accent;
+    transform: scale(1.2) translateY(-2px);
+    text-decoration: none;
+  }
+}
+
+/*CONTACTO: ENLACES EN NEGRO*/
+#contact a[href^="mailto"], 
+#contact a[href^="tel"] {
+  color: #222 !important;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s;
+  &:hover {
+    color: $accent !important;
+  }
+}
+
+/*RESPONSIVE MEJORAS*/
+@media(max-width: 768px) {
   section { padding: 2rem 1rem; }
-  .hero-section { height: 70vh; }
+  .menu-card { min-width: 90%; }
+  #gallery img { margin-bottom: 1rem; }
+  .hero-section { min-height: 60vh;}
 }
