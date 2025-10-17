@@ -10,6 +10,11 @@ Sitio web responsive para el café "Vita Café", realizado como proyecto final p
 - **JavaScript** (para animaciones y efectos)
 - **Font Awesome** (iconos sociales)
 - **Google Fonts**
+- **SEO básico optimizado**
+Meta descripción
+Meta keywords
+Meta author
+- **Preparado para implementación en hostings gratuitos como Vercel o Netlify**
 
 ## 📁 Estructura del proyecto
 
@@ -17,6 +22,7 @@ Sitio web responsive para el café "Vita Café", realizado como proyecto final p
 /
 ├── css/
 │   └── estilos.css
+    └── estilos.css.map
 ├── scss/
 │   └── estilos.scss
 ├── Pictures/
