@@ -2,30 +2,57 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Language" content="es">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Vita Café, cafetería artesanal. Cheesecakes, postres, café den cálida. Vení a vivir calidad en sabor y atención a Vita Café.">
+  <meta name="author" content="Vita Café">
+  <meta name="theme-color" content="#6e4b1b">
+  <meta name="description" content="Vita Café, cafetería artesanal. Cheesecakes, postres, café de calidad. Vení a vivir calidad en sabor y atención en Vita Café.">
   <meta name="keywords" content="Vita Café, café artesanal en Vitara, cheesecakes caseros, postres gourmet, café uruguayo, tortas artesanales, pastelería en Vitara, café y postres, desayunos en Vitara, repostería artesanal, café de calidad, café para llevar, ambiente acogedor, Vita Café Vitara, postres especiales, café y tortas, lugar para café, café y dulces, cafetería artesanal, Vita Café Uruguay">
-
-  <!-- SEO: canonical, robots, Open Graph y Twitter Cards -->
-  <link rel="canonical" href="./">
   <meta name="robots" content="index, follow">
+
+  <!-- SEO: canonical, Open Graph y Twitter Cards -->
+  <link rel="canonical" href="https://vitacafe.netlify.app">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Vita Café - Desayunos, meriendas y postres salados">
   <meta property="og:description" content="Vita Café, cafetería artesanal en Vitara. Cheesecakes, postres y café de calidad. Visítanos para disfrutar de sabores caseros y ambiente acogedor.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="./">
-  <meta property="og:image" content="Pictures/logobg.png">
-
+  <meta property="og:url" content="https://vitacafe.netlify.app">
+  <meta property="og:image" content="https://vitacafe.netlify.app/Pictures/logobg.png">
+  
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Vita Café - Desayunos, meriendas y postres salados">
   <meta name="twitter:description" content="Vita Café, cafetería artesanal en Vitara. Cheesecakes, postres y café de calidad.">
-  <meta name="twitter:image" content="Pictures/logobg.png">
+  <meta name="twitter:image" content="https://vitacafe.netlify.app/Pictures/logobg.png">
+
+  <!-- Datos estructurados (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Vita Café",
+    "image": "https://vitacafe.netlify.app/Pictures/logobg.png",
+    "url": "https://vitacafe.netlify.app",
+    "telephone": "+59894189960",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Sentra 1988",
+      "addressLocality": "Vitara",
+      "addressRegion": "Canelones",
+      "addressCountry": "UY"
+    },
+    "description": "Cafetería artesanal en Vitara. Cheesecakes, postres y café de calidad con ambiente cálido.",
+    "openingHours": "Mo-Sa 08:00-20:00",
+    "servesCuisine": "Café, Postres, Comidas Caseras, Comidas Saladas, Desayunos, meriendas"
+  }
+  </script>
 
   <title>Vita Café - Desayunos, meriendas y postres salados</title>
 
   <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
@@ -46,7 +73,7 @@
       width: 100%;
       height: 100%;
       background: url('Pictures/fondo.png') center/cover no-repeat;
-      opacity: 0.08; 
+      opacity: 0.08;
       z-index: -1;
       pointer-events: none;
       filter: blur(5px);
@@ -125,52 +152,44 @@
     <section id="menu" class="fade-in py-5">
       <h2 class="section-title text-center mb-4">Menú</h2>
       <div class="row g-4 justify-content-center">
-        <!-- Cheesecake -->
         <div class="col-6 col-md-3">
           <div class="card menu-card h-100 border-0 shadow-lg">
             <div class="card-img-container">
-              <img src="Pictures/cheesecake.jpg" class="card-img-top" alt="Cheesecake">
+              <img src="Pictures/cheesecake.jpg" class="card-img-top" alt="Cheesecake artesanal de frutilla de Vita Café">
               <div class="overlay">
                 <p class="overlay-text">Cheesecake</p>
               </div>
             </div>
-            <div class="card-body text-center"></div>
           </div>
         </div>
-        <!-- Pascualina -->
         <div class="col-6 col-md-3">
           <div class="card menu-card h-100 border-0 shadow-lg">
             <div class="card-img-container">
-              <img src="Pictures/pascualina.jpg" class="card-img-top" alt="Pascualina">
+              <img src="Pictures/pascualina.jpg" class="card-img-top" alt="Pascualina casera de Vita Café">
               <div class="overlay">
                 <p class="overlay-text">Pascualina</p>
               </div>
             </div>
-            <div class="card-body text-center"></div>
           </div>
         </div>
-        <!-- Scones -->
         <div class="col-6 col-md-3">
           <div class="card menu-card h-100 border-0 shadow-lg">
             <div class="card-img-container">
-              <img src="Pictures/scones.jpg" class="card-img-top" alt="Scones">
+              <img src="Pictures/scones.jpg" class="card-img-top" alt="Scones dulces y salados de Vita Café">
               <div class="overlay">
                 <p class="overlay-text">Scones</p>
               </div>
             </div>
-            <div class="card-body text-center"></div>
           </div>
         </div>
-        <!-- Torta de Fiambre -->
         <div class="col-6 col-md-3">
           <div class="card menu-card h-100 border-0 shadow-lg">
             <div class="card-img-container">
-              <img src="Pictures/tortadefiambre.jpg" class="card-img-top" alt="Torta de Fiambre">
+              <img src="Pictures/tortadefiambre.jpg" class="card-img-top" alt="Torta de fiambre artesanal de Vita Café">
               <div class="overlay">
                 <p class="overlay-text">Torta de Fiambre</p>
               </div>
             </div>
-            <div class="card-body text-center"></div>
           </div>
         </div>
       </div>
@@ -181,13 +200,13 @@
       <h2 class="section-title text-center mb-4">Galería</h2>
       <div class="row g-3 justify-content-center">
         <div class="col-6 col-md-4">
-          <img src="Pictures/restaurante1.png" class="img-fluid rounded shadow-lg hover-zoom" alt="Vita Café 1">
+          <img src="Pictures/restaurante1.png" class="img-fluid rounded shadow-lg hover-zoom" alt="Interior acogedor de Vita Café en Vitara">
         </div>
         <div class="col-6 col-md-4">
-          <img src="Pictures/restaurante2.jpg" class="img-fluid rounded shadow-lg hover-zoom" alt="Vita Café 2">
+          <img src="Pictures/restaurante2.jpg" class="img-fluid rounded shadow-lg hover-zoom" alt="Mesas de Vita Café con postres y café artesanal">
         </div>
         <div class="col-6 col-md-4">
-          <img src="Pictures/restaurante3.jpg" class="img-fluid rounded shadow-lg hover-zoom" alt="Vita Café 3">
+          <img src="Pictures/restaurante3.jpg" class="img-fluid rounded shadow-lg hover-zoom" alt="Ambiente cálido y moderno de Vita Café">
         </div>
       </div>
     </section>
@@ -210,7 +229,7 @@
         </div>
         <div class="mb-3">
           <label for="mensaje" class="form-label">Mensaje:</label>
-          <textarea class="form-control" id="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+          <textarea class="form-control" id="mensaje" rows="5" placeholder="Escribí tu mensaje..." required></textarea>
         </div>
         <button type="submit" class="btn btn-warning w-100 fw-bold hero-btn">Enviar</button>
       </form>
@@ -233,14 +252,12 @@
 
   <!-- Animaciones y Navbar Scroll -->
   <script>
-    // Navbar blur y color al hacer scroll
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
       if(window.scrollY > 50) navbar.classList.add('navbar-solid');
       else navbar.classList.remove('navbar-solid');
     });
 
-    // Fade-in animaciones
     const faders = document.querySelectorAll('.fade-in');
     const appearOptions = { threshold: 0.2 };
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
@@ -253,7 +270,6 @@
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // Splash screen animación
     window.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         document.getElementById('splash').style.display = 'none';
